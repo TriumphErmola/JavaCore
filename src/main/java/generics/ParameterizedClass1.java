@@ -13,7 +13,29 @@ public class ParameterizedClass1 {
         System.out.println(info2);
     }
 
+//    public void abc(Info<String> info) {
+//        String s = info.getValue();
+//    }
+//
+//    public void abc(Info<Integer> info) {
+//        Integer i = info.getValue();
+//    }
+
+
 }
+
+class Parent {
+    public void abc(Info<String> info) {
+        String s = info.getValue();
+    }
+}
+
+class Child extends Parent {
+    public void abc(Info<String> info) {
+        String i = info.getValue();
+    }
+}
+
 
 class Info<T> {
     private T value;

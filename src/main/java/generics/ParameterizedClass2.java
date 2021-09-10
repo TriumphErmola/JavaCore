@@ -43,6 +43,10 @@ class OtherPair<V> {
         this.value2 = value2;
     }
 
+    public <V> V abc(V val) {
+        return val;
+    }
+
     public V getFirstValue1() {
         return value1;
     }
