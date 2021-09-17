@@ -1,4 +1,4 @@
-package HeadFirst.GUI;
+package headFirst.GUI;
 
 import javax.swing.*;
 import java.awt.*;

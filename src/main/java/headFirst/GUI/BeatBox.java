@@ -1,4 +1,4 @@
-package HeadFirst.GUI;
+package headFirst.GUI;
 
 import javax.sound.midi.*;
 import javax.swing.*;
