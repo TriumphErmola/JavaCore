@@ -30,7 +30,7 @@ public class HashCodeExample1 {
 
 }
 
-final class Student {
+final class Student implements Comparable<Student> {
     final private String name;
     final private String surname;
     final private int course;
@@ -62,18 +62,27 @@ final class Student {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        return course == student.course &&
-                Objects.equals(name, student.name) &&
-                Objects.equals(surname, student.surname);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Student student = (Student) o;
+//        return course == student.course &&
+//                Objects.equals(name, student.name) &&
+//                Objects.equals(surname, student.surname);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(name, surname, course);
+//    }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(name, surname, course);
+    public int compareTo(Student o) {
+        int res = this.name.compareTo(o.name);
+        if (res == 0) {
+            res = this.surname.compareTo(o.surname);
+        }
+        return res;
     }
 }

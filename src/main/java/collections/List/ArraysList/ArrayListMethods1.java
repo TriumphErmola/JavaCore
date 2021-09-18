@@ -1,10 +1,11 @@
-package collections.Iterator;
+package collections.List.ArraysList;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
-public class IteratorExample {
+public class ArrayListMethods1 {
     public static void main(String[] args) {
+
+
         ArrayList<String> arrayList1 = new ArrayList<>();
         arrayList1.add("Абаддон");
         arrayList1.add("Сигизмунд");
@@ -13,13 +14,15 @@ public class IteratorExample {
         arrayList1.add("Амит");
         arrayList1.add("Барабас");
         arrayList1.add("Ариман");
+        arrayList1.add(5, "Никона");
 
-
-        Iterator<String> iterator = arrayList1.iterator();
-        while (iterator.hasNext()) {
-            iterator.next();
-            iterator.remove();
+        for (int i = 0; i < arrayList1.size(); i++) {
+            System.out.print(arrayList1.get(i) + " ");
         }
+
+        arrayList1.set(1, "Гарвель Локен");
+        arrayList1.remove("Севатар");
         System.out.println(arrayList1);
     }
 }
+
