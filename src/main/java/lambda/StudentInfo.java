@@ -2,11 +2,12 @@ package lambda;
 
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.function.Function;
 
 
 public class StudentInfo {
 
-    void testStudents(ArrayList<Student> a1, Predicate<Student> pr) {
+    void testStudents(@org.jetbrains.annotations.NotNull ArrayList<Student> a1, Predicate<Student> pr) {
         for (Student s : a1) {
             if (pr.test(s)) {
                 System.out.println(s);
@@ -31,53 +32,33 @@ public class StudentInfo {
 
         StudentInfo info = new StudentInfo();
 
-//        Collections.sort(students, new Comparator<Student>() {
-//
-//            @Override
-//            public int compare(Student s1, Student s2) {
-//                return s1.course - s2.course;
-//            }
-//        });
-//        System.out.println(students);
-//        Collections.sort(students, (stud1, stud2) -> stud1.course - stud2.course);
+        Predicate<Student> pr1 = student -> student.avgGrade > 7.5;
+        Predicate<Student> pr2 = student -> student.sex == 'm';
 
-        info.testStudents(students, (Student s) -> {
-            return s.avgGrade > 8;
-        });
-        System.out.println("======");
-        info.testStudents(students, (Student s) -> {
-            return s.age > 20 && s.avgGrade < 9.3 && s.sex == 'f';
-        });
+        info.testStudents(students, pr1.and(pr2));
+        System.out.println("=====");
+        info.testStudents(students, pr1.or(pr2));
+        System.out.println("=====");
+        info.testStudents(students, pr1.negate());
+        System.out.println("=====");
 
-//        info.testStudents(students, p -> p.avgGrade > 8);
-//        info.printStudentsOverGrade(students, 8.0);
-//        System.out.println("======");
-//        info.printStudentsUnderAge(students, 30);
-//        System.out.println("======");
-//        info.printStudentsMixCondition(students, 20, 9.0, 'f');
+        Function<Student, Double> function = student -> student.avgGrade;
+        double res = avgOfSomething(students, student -> student.avgGrade);
+        double res1 = avgOfSomething(students, student -> (double) student.course);
+        double res2 = avgOfSomething(students, student -> (double) student.age);
+        System.out.println(res);
+        System.out.println(res1);
+        System.out.println(res2);
     }
 
-    void printStudentsOverGrade(ArrayList<Student> a1, double grade) {
-        for (Student s : a1) {
-            if (s.avgGrade > grade) {
-                System.out.println(s);
-            }
+    private static double avgOfSomething(List<Student> list, Function<Student, Double> function) {
+        double result = 0;
+        for (Student st : list) {
+            result += function.apply(st);
         }
+        result = result / list.size();
+        return result;
     }
 
-    void printStudentsUnderAge(ArrayList<Student> a1, int age) {
-        for (Student s : a1) {
-            if (s.age < age) {
-                System.out.println(s);
-            }
-        }
-    }
 
-    void printStudentsMixCondition(ArrayList<Student> a1, int age, double grade, char sex) {
-        for (Student s : a1) {
-            if (s.age > age && s.avgGrade < grade && s.sex == sex) {
-                System.out.println(s);
-            }
-        }
-    }
 }
