@@ -19,7 +19,7 @@ public class firstNonRepeatedCharacter {
     }
 
 
-    public  String firstNonRepeatedCharacterfunc(String str) {
+    public static String firstNonRepeatedCharacterfunc(String str) {
         Map<Integer, Long> chs = str.codePoints()
                 .mapToObj(cp -> cp)
                 .collect(Collectors.groupingBy(Function.identity(),

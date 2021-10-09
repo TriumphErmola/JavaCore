@@ -1,15 +1,17 @@
 package multithreading;
 
-public class Ex11synchronized {
-    static volatile int counter = 0;
+public class SynchronizedBlock2 {
+    volatile static int counter = 0;
 
-    public static synchronized void increment() {
-        counter++;
+    public static void increment() {
+        synchronized (SynchronizedBlock2.class) {
+            counter++;
+        }
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Thread thread1 = new Thread(new R());
-        Thread thread2 = new Thread(new R());
+        Thread thread1 = new Thread(new R2());
+        Thread thread2 = new Thread(new R2());
         thread1.start();
         thread2.start();
         thread1.join();
@@ -18,7 +20,7 @@ public class Ex11synchronized {
     }
 }
 
-class R implements Runnable {
+class R2 implements Runnable {
 
     @Override
     public void run() {
