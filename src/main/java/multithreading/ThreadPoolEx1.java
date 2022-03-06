@@ -15,7 +15,7 @@ public class ThreadPoolEx1 {
         }
         executorService.shutdown();
 //        executorService.awaitTermination(5, TimeUnit.SECONDS);
-//        System.out.println("Main ends");
+//        System.out.println("Test1 ends");
     }
 
 }

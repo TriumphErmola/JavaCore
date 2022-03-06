@@ -6,8 +6,8 @@ public class Kata4 {
     }
 
 
-    public static char getGrade(int s1, int s2, int s3) {
+    public static Object getGrade(int s1, int s2, int s3) {
 
-        return '';
+        return null;
     }
 }

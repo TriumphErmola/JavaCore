@@ -2,7 +2,7 @@ package multithreading;
 
 public class DaemonEx {
     public static void main(String[] args) {
-        System.out.println("Main thread starts");
+        System.out.println("Test1 thread starts");
         UserThread userThread = new UserThread();
         userThread.setName("user_thread");
         DaemonThread daemonThread = new DaemonThread();
@@ -10,7 +10,7 @@ public class DaemonEx {
         daemonThread.setDaemon(true);
         userThread.start();
         daemonThread.start();
-        System.out.println("Main thread ends");
+        System.out.println("Test1 thread ends");
     }
 }
 

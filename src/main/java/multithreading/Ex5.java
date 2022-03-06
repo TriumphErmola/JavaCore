@@ -10,6 +10,6 @@ public class Ex5 implements Runnable {
     public static void main(String[] args) {
         Thread thread = new Thread(new Ex5());
         thread.start();
-        System.out.println("Method Main.Thread name = " + Thread.currentThread().getName());
+        System.out.println("Method Test1.Thread name = " + Thread.currentThread().getName());
     }
 }
