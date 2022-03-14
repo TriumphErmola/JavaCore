@@ -1,4 +1,4 @@
-package JavaCore.Lesson21;
+package JavaCore.Lesson21GC;
 
 public class Test2 {
     public static void main(String[] args) {

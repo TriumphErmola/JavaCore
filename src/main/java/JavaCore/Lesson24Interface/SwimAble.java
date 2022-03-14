@@ -1,4 +1,4 @@
-package JavaCore.Lesson24;
+package JavaCore.Lesson24Interface;
 
 public interface SwimAble {
     void swim();

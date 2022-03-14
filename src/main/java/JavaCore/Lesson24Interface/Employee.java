@@ -1,6 +1,15 @@
-package JavaCore.Lesson24;
+package JavaCore.Lesson24Interface;
 
 public class Employee {
+
+    public static void main(String[] args) {
+
+        HelpAble helpAble = new Plowec();
+        SwimAble swimAble = new Plowec();
+        System.out.println(helpAble.a);
+        helpAble.pomosh();
+        helpAble.tushitpojar("lom");
+    }
 
     String name;
     int age;
@@ -30,8 +39,8 @@ class Spasatel extends Employee implements HelpAble {
     }
 
     @Override
-    public void tushitpojar() {
-        System.out.println("Спасатель тушит пожар");
+    public void tushitpojar(String b) {
+        System.out.println("Спасатель тушит пожар c помощью : "+b);
     }
 }
 
@@ -46,14 +55,14 @@ class Plowec extends Employee implements SwimAble, HelpAble {
         System.out.println("Пловец плывёт");
     }
 
-    @Override
+
     public void pomosh() {
         System.out.println("Пловец оказывает помощь");
     }
 
-    @Override
-    public void tushitpojar() {
-        System.out.println("Пловец тушит пожар");
+
+    public void tushitpojar(String s) {
+        System.out.println("Пловец тушит пожар c помощью : "+s);
 
     }
 }

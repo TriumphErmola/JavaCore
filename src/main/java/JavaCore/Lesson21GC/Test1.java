@@ -1,4 +1,4 @@
-package JavaCore.Lesson21;
+package JavaCore.Lesson21GC;
 
 public class Test1 {
 

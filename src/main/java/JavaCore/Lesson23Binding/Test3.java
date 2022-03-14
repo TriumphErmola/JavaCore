@@ -1,4 +1,4 @@
-package JavaCore.Lesson23;
+package JavaCore.Lesson23Binding;
 
 public class Test3 {
     public static void main(String[] args) {

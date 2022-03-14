@@ -1,4 +1,4 @@
-package JavaCore.Lesson23;
+package JavaCore.Lesson23Binding;
 
 public class Test1 {
     void abc(Animal a) {

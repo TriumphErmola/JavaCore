@@ -1,4 +1,4 @@
-package JavaCore.Lesson23;
+package JavaCore.Lesson23Binding;
 
 public class Test2 {
     public static void main(String[] args) {
@@ -21,7 +21,7 @@ class Animall{
 
 class Mauss extends Animall{
 
-    void showInfOAboutMouse(){
+     void showInfOAboutMouse(){
         System.out.println("Name of mouse : "+ showName());
     }
 
