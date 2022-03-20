@@ -5,6 +5,7 @@ public class Test3 {
         Employees emp1 = new Stomatolog();
         Employees emp2 = new Mentor();
         Employees emp3 = new Voditel();
+        Employees emp4 = new Employees();
         Stomatolog st1 = (Stomatolog) emp1;
         Voditel vod1 = (Voditel) emp3;
         System.out.println(st1.spesialization);
@@ -15,6 +16,15 @@ public class Test3 {
         h1.help();
         System.out.println(((Stomatolog) h1).spesialization);
         ((Stomatolog) h1).lechit();
+
+        Employees[] array = {emp1, emp2, emp3, emp4};
+
+        for (Employees emp : array) {
+            if (emp instanceof Voditel) {
+                System.out.println(((Voditel) emp).carName);
+                ((Voditel) emp).voditCar();
+            }
+        }
 
     }
 }
