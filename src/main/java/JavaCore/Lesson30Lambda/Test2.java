@@ -16,9 +16,18 @@ public class Test2 {
         arrayList.add(stud3);
         arrayList.add(stud4);
         arrayList.add(stud5);
-
-        FindStudentsOverGrade findStudentsOverGrade = new FindStudentsOverGrade();
-        stud1.testStudents(arrayList, findStudentsOverGrade);
+        stud1.testStudents(arrayList, (Student1 student1) -> {
+            return student1.avgGrade > 4.5;
+        });
+        System.out.println("===============================");
+        stud1.testStudents(arrayList, (Student1 student1) -> {
+            return student1.avgGrade < 4.5;
+        });
+        System.out.println("===============================");
+        stud1.testStudents(arrayList, (Student1 student1) -> {
+            return student1.age > 21;
+        });
+        System.out.println("===============================");
 
 
     }
@@ -61,12 +70,3 @@ interface studentChecks {
     boolean testStudent(Student1 student1);
 }
 
-class FindStudentsOverGrade implements studentChecks {
-
-    @Override
-    public boolean testStudent(Student1 student1) {
-        return student1.avgGrade > 8.5;
-    }
-
-
-}
