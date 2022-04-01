@@ -1,4 +1,4 @@
-package JavaCore.StringLesson16;
+package JavaCore.Lesson16String;
 
 public class Test1 {
     public static void main(String[] args) {

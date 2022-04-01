@@ -1,8 +1,8 @@
-package JavaCore.ArrayListLesson20;
+package JavaCore.Lesson20ArrayList;
 
 import java.util.ArrayList;
 
-public class Test2 {
+public class Test4 {
     public static void main(String[] args) {
 
         ArrayList<StringBuilder> list = new ArrayList<>();
@@ -13,16 +13,13 @@ public class Test2 {
         list.add(sb2);
         list.add(sb3);
 
-        for (int i = 0; i < list.size(); i++) {
-            list.get(i).append("!!!");
-        }
-        for (StringBuilder sb : list) {
-            System.out.print(sb+ " ");
-        }
-        list.remove(2);
-        System.out.println(list);
+        ArrayList<StringBuilder> list1 = (ArrayList<StringBuilder>) list.clone();
 
 
+        System.out.println("list - "+ list);
+        list.get(0).append("!!!");
+        list.set(0,new StringBuilder("DAKKA"));
 
+        System.out.println("list1 - "+ list1);
     }
 }

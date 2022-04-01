@@ -1,4 +1,4 @@
-package JavaCore.IncapsulationLesson22;
+package JavaCore.Lesson22Incapsulation;
 
 public class Employee {
     private String name;

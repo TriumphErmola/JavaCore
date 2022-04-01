@@ -4,10 +4,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Test16 {
-    public static void main(String[] args) throws Exception {
-        Animal2 animal2 = new Mouse2();
+    public static void main(String[] args) {
+        String s1 = new String("privet");
+        String s2 = "privet";
+        System.out.println(s1.equals(s2));
 
     }
+
 
 }
 

@@ -1,4 +1,4 @@
-package JavaCore.ArraysLesson18;
+package JavaCore.Lesson18Arrays;
 
 public class Test5 {
     public static void main(String[] args) {

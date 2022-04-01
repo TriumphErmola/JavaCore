@@ -1,7 +1,6 @@
-package JavaCore.ArrayListLesson20;
+package JavaCore.Lesson20ArrayList;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Test1 {
     public static void main(String[] args) {

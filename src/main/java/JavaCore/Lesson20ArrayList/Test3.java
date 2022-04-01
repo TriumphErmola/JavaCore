@@ -1,4 +1,4 @@
-package JavaCore.ArrayListLesson20;
+package JavaCore.Lesson20ArrayList;
 
 import java.util.ArrayList;
 

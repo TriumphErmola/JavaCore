@@ -1,4 +1,4 @@
-package JavaCore.VarargsLesson19;
+package JavaCore.Lesson19Varargs;
 
 public class Test1 {
     static void summa(int... a) {

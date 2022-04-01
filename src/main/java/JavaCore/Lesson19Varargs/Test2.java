@@ -1,4 +1,4 @@
-package JavaCore.VarargsLesson19;
+package JavaCore.Lesson19Varargs;
 
 public class Test2 {
     public static void main(String[] args) {
