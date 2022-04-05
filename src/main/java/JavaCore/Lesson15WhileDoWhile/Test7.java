@@ -5,6 +5,7 @@ public class Test7 {
 
         int money = 0;
         do {
+
             System.out.println("delayte stavku");
             System.out.println("vi proigrali");
             money -= 10;
