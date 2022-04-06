@@ -1,6 +1,6 @@
 package JavaCore.Lesson12IfElse;
 
-import JavaCore.Lesson11.Student;
+import JavaCore.Lesson11ArgumentsMethods.Student;
 
 public class Test4 {
 

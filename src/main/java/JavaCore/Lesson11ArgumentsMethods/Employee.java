@@ -1,4 +1,4 @@
-package JavaCore.Lesson11;
+package JavaCore.Lesson11ArgumentsMethods;
 
 public class Employee {
     String name;
