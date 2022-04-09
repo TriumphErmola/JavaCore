@@ -8,7 +8,7 @@ public class FileEx {
     public static void main(String[] args) throws IOException {
         File file = new File("java.txt");
         File folder = new File("C:\\Users\\Andrey\\Desktop\\Test");
-        File file2 = new File("C:\\Users\\Andrey\\Desktop\\TestFile\\Test1.txt");
+        File file2 = new File("C:\\Users\\Andrey\\Desktop\\TestFile\\MethodOverloading.txt");
         File folder2 = new File("C:\\Users\\Andrey\\Desktop\\TestFile");
 //        System.out.println("file.getAbsolutePath() : " + file.getAbsolutePath());
 //        System.out.println("folder.getAbsolutePath() : " + folder.getAbsolutePath());
