@@ -1,4 +1,4 @@
-package MasterClass;
+package MasterClass.FirstSteps;
 
 public class Test1 {
     public static void main(String[] args) {
