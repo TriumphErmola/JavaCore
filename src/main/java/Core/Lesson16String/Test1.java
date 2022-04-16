@@ -37,7 +37,7 @@ public class Test1 {
 //        int result = str1488.length();
 //        System.out.println(result);
 
-        String str = " Inside Main";
+        String str = " Inside TestSpeedConverterMain";
         String subs = str.substring(0, 6);
         long n = subs.trim().length();
         System.out.println(n);

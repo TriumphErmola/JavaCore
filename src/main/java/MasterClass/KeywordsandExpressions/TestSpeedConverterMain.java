@@ -1,6 +1,6 @@
 package MasterClass.KeywordsandExpressions;
 
-public class Main {
+public class TestSpeedConverterMain {
 
     public static void main(String[] args) {
         double miles = SpeedConverter.toMilesPerHour(100.5);
