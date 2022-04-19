@@ -2,8 +2,8 @@ package MasterClass.KeywordsandExpressions;
 
 public class Test6 {
     public static void main(String[] args) {
-        System.out.println(getDurationString(65, 45));
-        System.out.println(getDurationString(36000));
+
+        System.out.println(getDurationString(7200));
     }
 
     private static String getDurationString(long minutes, long seconds) {
