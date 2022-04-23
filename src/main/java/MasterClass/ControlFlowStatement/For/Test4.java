@@ -1,4 +1,4 @@
-package MasterClass.ControlFlowStatement.Switch;
+package MasterClass.ControlFlowStatement.For;
 
 public class Test4 {
     public static void main(String[] args) {
