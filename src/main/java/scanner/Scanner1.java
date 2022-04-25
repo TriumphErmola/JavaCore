@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Scanner1 {
     public static void main(String[] args) {
 
-//        Scanner scanner = new Scanner(System.in);
+//        Test2 scanner = new Test2(System.in);
 //        System.out.println("Введите число");
 //        int i = scanner.nextInt();
 //        System.out.println("Введенное число : "+i);
