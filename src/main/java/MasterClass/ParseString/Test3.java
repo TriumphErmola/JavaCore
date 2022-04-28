@@ -1,7 +1,7 @@
 package MasterClass.ParseString;
 
 import java.util.Scanner;
-
+//сумма 10 чисел
 public class Test3 {
     public static void main(String[] args) {
         int count = 1;

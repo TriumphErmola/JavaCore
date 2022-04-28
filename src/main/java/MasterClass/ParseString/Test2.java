@@ -1,7 +1,7 @@
 package MasterClass.ParseString;
 
 import java.util.Scanner;
-
+//определение даты рождения
 public class Test2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
