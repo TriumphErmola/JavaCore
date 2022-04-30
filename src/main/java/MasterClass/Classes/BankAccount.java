@@ -9,11 +9,17 @@ public class BankAccount {
     private String phoneNumber;
 
     public BankAccount() {
-        this(1,2.5,"default","default","default");
+        this(1, 2.5, "default", "default", "default");
+        System.out.println("called empty constructor");
 
     }
 
+    public BankAccount(String customerName, String email, String phoneNumber) {
+        this(9999, 100.55, customerName, email, phoneNumber);
+    }
+
     public BankAccount(int accountNumber, double balance, String cutomerName, String email, String phoneNumber) {
+        System.out.println("Account constructor with  pararmeters");
         this.accountNumber = accountNumber;
         this.balance = balance;
         this.cutomerName = cutomerName;
@@ -68,7 +74,7 @@ public class BankAccount {
     }
 
     public void withdrawFunds(double withdrawBalance) {
-        if (this.balance - withdrawBalance <= 0) {
+        if (this.balance - withdrawBalance < 0) {
             System.out.println("Недостаточно средств для операции");
         } else {
             this.balance -= withdrawBalance;
@@ -77,19 +83,30 @@ public class BankAccount {
 
 
     }
+
+    @Override
+    public String toString() {
+        return "BankAccount{" +
+                "accountNumber=" + accountNumber +
+                ", balance=" + balance +
+                ", cutomerName='" + cutomerName + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
+    }
 }
 
 class Test {
     public static void main(String[] args) {
-        BankAccount bankAccountAndreyErmolenko = new BankAccount();
-        BankAccount bankAccountWelderSvarka = new BankAccount();
-        System.out.println(bankAccountWelderSvarka.getBalance());
-        System.out.println(bankAccountWelderSvarka.getCutomerName());
-        bankAccountAndreyErmolenko.setAccountNumber(1);
-        bankAccountAndreyErmolenko.setBalance(25000);
-        bankAccountAndreyErmolenko.setEmail("xramovic@yandex.ru");
-        bankAccountAndreyErmolenko.setPhoneNumber("89293609010");
-        bankAccountAndreyErmolenko.depositFunds(5000);
-        bankAccountAndreyErmolenko.withdrawFunds(250);
+
+        BankAccount bankAccountAndrey = new BankAccount();
+        bankAccountAndrey.setBalance(20000);
+        System.out.println("=================");
+        bankAccountAndrey.depositFunds(5000);
+        System.out.println("=================");
+        bankAccountAndrey.withdrawFunds(25000);
+        System.out.println("=================");
+        BankAccount bankAccountMark = new BankAccount("abc", "xram@", "123456");
+        System.out.println(bankAccountMark);
     }
 }
