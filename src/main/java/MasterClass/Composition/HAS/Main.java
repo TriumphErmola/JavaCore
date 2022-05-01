@@ -9,12 +9,8 @@ public class Main {
         Monitor monitor = new Monitor("27inch", "Acer", 27, new Resolution(25, 25));
         Motherboard motherboard = new Motherboard("BJ-200", "Asus", 6, 4, "v2.44");
 
-        PC pc = new PC(theCase, monitor, motherboard);
-        pc.getMonitor().drawPixelAt(125, 30, "Black");
-        pc.getTheCase().pressPowerButton();
-        pc.getMotherboard().loadProgram("Steam");
-        String model = pc.getMotherboard().getModel();
-        System.out.println(model);
+        PC thePC = new PC(theCase, monitor, motherboard);
+        thePC.powerUp();
 
 
     }
