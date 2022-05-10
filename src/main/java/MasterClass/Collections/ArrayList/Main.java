@@ -1,5 +1,6 @@
 package MasterClass.Collections.ArrayList;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -46,6 +47,9 @@ public class Main {
                     searchForItem();
                     break;
                 case 6:
+                    processArrayListList();
+                    break;
+                case 7:
                     quit = true;
                     break;
 
@@ -54,34 +58,45 @@ public class Main {
 
     }
 
+
     public static void addItem() {
         System.out.println("Please enter the grosery item");
         grocerList.addGroceryItem(scanner.nextLine());
     }
 
     public static void modifyItem() {
-        System.out.println("Enter item number");
-        int itemNumer = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("Enter replacement item:");
+        System.out.println("Current item name");
+        String itemNumer = scanner.nextLine();
+        System.out.println("Enter new item:");
         String newItem = scanner.nextLine();
-        grocerList.modifyGroceryItem(itemNumer - 1, newItem);
+        grocerList.modifyGroceryItem(itemNumer, newItem);
 
     }
 
     public static void removeItem() {
-        System.out.println("Enter position item for delete:");
-        int itemDelete = scanner.nextInt();
-        grocerList.removeGroceryList(itemDelete - 1);
+        System.out.println("Enter item name:");
+        String itemDelete = scanner.nextLine();
+        grocerList.removeGroceryList(itemDelete);
     }
 
     public static void searchForItem() {
         System.out.println("Enter item name for search:");
         String searchItemName = scanner.nextLine();
-        if (grocerList.searchItem(searchItemName) != null) {
+        if (grocerList.onFile(searchItemName)) {
             System.out.println("Found " + searchItemName + " in our grocery");
         } else {
             System.out.println(searchItemName + " is not found the shopping list");
         }
+    }
+
+    private static void processArrayListList() {
+        //разные способы создания листов и массивов
+        ArrayList<String> newArray = new ArrayList<>();
+        newArray.addAll(grocerList.getGroceryList());
+
+        ArrayList<String> nextArray = new ArrayList<>(grocerList.getGroceryList());
+
+        String[] myArray = new String[grocerList.getGroceryList().size()];
+        myArray = grocerList.getGroceryList().toArray(myArray);
     }
 }
