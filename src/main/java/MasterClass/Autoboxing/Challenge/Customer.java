@@ -17,6 +17,7 @@ public class Customer {
         this.transactions.add(amount);
     }
 
+
     public String getName() {
         return name;
     }
