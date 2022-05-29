@@ -55,14 +55,41 @@ public class SearchThree implements NodeList {
 
     @Override
     public boolean removeItem(ListItem item) {
+        if (item != null) {
+            System.out.println("Deleting item " + item.getValue());
+        }
+        ListItem currentItem = this.root;
+        while (currentItem != null) {
+            int comporison = currentItem.compareTo(item);
+            if (comporison == 0) {
+                //нашли элемент для удаления
+                if (currentItem == this.root) {
+                    this.root = currentItem.next();
+                } else {
+                    currentItem.previous().setNext(currentItem.next());
+                    if (currentItem.next() != null) {
+                        currentItem.next().setPrevious(currentItem.previous());
+                    }
+                }
+                return true;
+            } else if (comporison < 0) {
+                currentItem = currentItem.next();
+            } else { //comparison > 0
+                // мы находимся в элементе больше, чем тот, который нужно удалить
+                // поэтому элемент не находится в списке
+                return false;
+            }
+        }
+        //мы достигли конца списка
+        // не найдя элемент для удаления
         return false;
     }
 
     @Override
     public void traverse(ListItem root) {
         //рекурсивный метов
+
         if (root != null) {
-            traverse(root.previous());
             System.out.println(root.getValue());
             traverse(root.next());
         }
