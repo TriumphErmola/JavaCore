@@ -8,11 +8,15 @@ public class Main {
         SoccerPlayer tim = new SoccerPlayer("Tim");
         BaseballPlayer john = new BaseballPlayer("John");
 
-        Team gazmys = new Team("Gazmys");
-        gazmys.addPlayer(andrey);
-        gazmys.addPlayer(tim);
-        gazmys.addPlayer(john);
+        Team<FootballPlayer> footballPlayerTeam = new Team<>("Gazmys");
+        footballPlayerTeam.addPlayer(andrey);
 
-        System.out.println(gazmys.numPlayers());
+
+        Team<BaseballPlayer> baseballPlayerTeam = new Team<>("Omichka");
+        baseballPlayerTeam.addPlayer(john);
+
+        Team<SoccerPlayer> soccerPlayerTeam = new Team<>("Tobol");
+        soccerPlayerTeam.addPlayer(tim);
+
     }
 }
