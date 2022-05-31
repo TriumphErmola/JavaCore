@@ -18,5 +18,19 @@ public class Main {
         Team<SoccerPlayer> soccerPlayerTeam = new Team<>("Tobol");
         soccerPlayerTeam.addPlayer(tim);
 
+        Team<FootballPlayer> footballPlayerTeam1 = new Team<>("Orsk");
+        FootballPlayer david = new FootballPlayer("David");
+        footballPlayerTeam1.addPlayer(david);
+
+        Team<FootballPlayer> footballPlayerTeam3 = new Team<>("Gaz");
+
+        footballPlayerTeam.matchResult(footballPlayerTeam1,10,15);
+        footballPlayerTeam.matchResult(footballPlayerTeam3,5,20);
+
+        System.out.println(footballPlayerTeam.compareTo(footballPlayerTeam3));
+        System.out.println(footballPlayerTeam.compareTo(footballPlayerTeam1));
+
+
+
     }
 }

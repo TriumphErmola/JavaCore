@@ -1,4 +1,6 @@
-package MasterClass.Generics;
+package MasterClass.Generics.Challenge;
+
+import MasterClass.Generics.Player;
 
 import java.util.ArrayList;
 import java.util.List;
