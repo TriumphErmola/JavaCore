@@ -1,13 +1,12 @@
-package MasterClass.Collections;
+package MasterClass.Collections.binarysearch;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Theatre {
 
     private final String theatreName;
-    private List<Seat> seats = new ArrayList<>();
+    public List<Seat> seats = new ArrayList<>();
 
     public Theatre(String theatreName, int numRows, int seatsPerRow) {
         this.theatreName = theatreName;
@@ -26,14 +25,33 @@ public class Theatre {
     }
 
     public boolean reserveSeat(String seatNumber) {
-        Seat requestedSeat = new Seat(seatNumber);
-        int foundSeat = Collections.binarySearch(seats, requestedSeat, null);
-        if (foundSeat >= 0) {
-            return seats.get(foundSeat).reserve();
-        } else {
-            System.out.println("There is no seat " + seatNumber);
-            return false;
+//        Seat requestedSeat = new Seat(seatNumber);
+//        int foundSeat = Collections.binarySearch(seats, requestedSeat, null);
+//        if (foundSeat >= 0) {
+//            return seats.get(foundSeat).reserve();
+//        } else {
+//            System.out.println("There is no seat " + seatNumber);
+//            return false;
+
+        int low = 0;
+        int higt = seats.size() - 1;
+
+        while (low <= higt) {
+            System.out.print(".");
+            System.out.print(" ");
+            int mid = (low + higt) / 2;
+            Seat midVal = seats.get(mid);
+            int cmp = midVal.getSeatNumber().compareTo(seatNumber);
+            if (cmp < 0) {
+                low = mid + 1;
+            } else if (cmp > 0) {
+                higt = mid - 1;
+            } else {
+                return seats.get(mid).reserve();
+            }
         }
+        System.out.println("There is not seat " + seatNumber);
+        return false;
 
 //        for (Seat seat : seats) {
 //            System.out.print(".");
@@ -55,7 +73,7 @@ public class Theatre {
         }
     }
 
-    private class Seat implements Comparable<Seat> {
+    public class Seat implements Comparable<Seat> {
         private final String seatNumber;
         private boolean reserved = false;
 
