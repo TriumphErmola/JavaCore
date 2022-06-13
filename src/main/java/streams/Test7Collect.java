@@ -20,12 +20,12 @@ public class Test7Collect {
         students.add(st4);
         students.add(st5);
 
-//        Map<Integer, List<Student>> map = students.stream().map(e1 -> {
+//        MapClass<Integer, List<Student>> map = students.stream().map(e1 -> {
 //                    e1.setName(e1.getName().toUpperCase());
 //                    return e1;
 //                })
 //                .collect(Collectors.groupingBy(e1 -> e1.getCourse()));
-//        for (Map.Entry<Integer, List<Student>> entry : map.entrySet()) {
+//        for (MapClass.Entry<Integer, List<Student>> entry : map.entrySet()) {
 //            System.out.println(entry.getKey() + " " + entry.getValue().toString());
 //        }
 

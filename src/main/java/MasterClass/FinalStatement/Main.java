@@ -27,7 +27,7 @@ public class Main{
 //
 //        System.out.println("**********************************");
 
-        System.out.println("Main method called");
+        System.out.println("MapClass method called");
         SIBTest test = new SIBTest();
         test.someMethod();
         System.out.println("Owner is "+SIBTest.owner);

@@ -8,8 +8,8 @@ public class CountingRepeatedCharacters {
     public Map<Character, Integer> countDuplicateCharacters(String str) {
         Map<Character, Integer> result = new HashMap<>();
 
-//        public Map<Character, Long> countDuplicateCharacters(String str) {
-//            Map<Character, Long> result = str.chars()
+//        public MapClass<Character, Long> countDuplicateCharacters(String str) {
+//            MapClass<Character, Long> result = str.chars()
 //                    .mapToObj(c -> (char) c)
 //                    .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
 //            return result;
