@@ -25,6 +25,21 @@ public class MapClass {
 
         System.out.println("====================");
 
+        langs.remove("Basic");
+        if (langs.remove("Algol", "algorithmic lang")) {
+            System.out.println("Algol removed");
+        } else {
+            System.out.println("Remove not use");
+        }
+
+
+        if (langs.replace("JavaScript", "func lang and less popular lang how Java", "1234")) {
+            System.out.println("JS replaced");
+        } else {
+            System.out.println("JS not replaced");
+        }
+        System.out.println(langs.replace("Scala", "55555"));
+
         for (String keys : langs.keySet()) {
             System.out.println(keys + " : " + langs.get(keys));
         }
