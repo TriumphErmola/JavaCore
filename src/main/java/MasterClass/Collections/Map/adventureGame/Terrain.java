@@ -13,6 +13,7 @@ public class Terrain {
         this.terrainNumber = terrainNumber;
         this.opisanie = opisanie;
         this.escape = new HashMap<String, Integer>();
+        this.escape.put("Q",0);
     }
 
     public void addEscape(String nazvanie, int lokaciya) {
