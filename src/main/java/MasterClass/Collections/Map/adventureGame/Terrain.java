@@ -9,11 +9,16 @@ public class Terrain {
     private final String opisanie;
     private final Map<String, Integer> escape;
 
-    public Terrain(int terrainNumber, String opisanie,Map<String,Integer> escape) {
+    public Terrain(int terrainNumber, String opisanie, Map<String, Integer> escape) {
         this.terrainNumber = terrainNumber;
         this.opisanie = opisanie;
-        this.escape = escape;
-        this.escape.put("Q",0);
+        if (escape != null) {
+            this.escape = new HashMap<>(escape);
+        } else {
+            this.escape = new HashMap<>();
+        }
+
+        this.escape.put("Q", 0);
     }
 
 //    public void addEscape(String nazvanie, int lokaciya) {
