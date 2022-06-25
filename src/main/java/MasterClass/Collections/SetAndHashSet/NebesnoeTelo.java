@@ -31,4 +31,17 @@ public final class NebesnoeTelo {
         return this.sputniki.add(luna);
     }
 
+    @Override
+    public boolean equals(Object telo) {
+        if (this == telo) {
+            return true;
+        }
+        System.out.println("telo.getClass() is " + telo.getClass());
+        System.out.println("this.getClass() is " + this.getClass());
+        if ((telo == null) || (telo.getClass() != this.getClass())) {
+            return false;
+        }
+        String teloName = ((NebesnoeTelo) telo).getNameOfObject();
+        return this.nameOfObject.equals(teloName);
+    }
 }

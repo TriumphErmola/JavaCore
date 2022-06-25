@@ -47,10 +47,20 @@ public class Main {
 
         NebesnoeTelo teloTest = solarnayaSystema.get("Mars");
         System.out.println("Luni of " + teloTest.getNameOfObject());
-        for(NebesnoeTelo sputnikiThisObject : teloTest.getSputniki()){
+        for (NebesnoeTelo sputnikiThisObject : teloTest.getSputniki()) {
             System.out.println("\t" + sputnikiThisObject.getNameOfObject());
 
         }
+
+        telo = new NebesnoeTelo("Mars", 1234);
+        solarnayaSystema.put(telo.getNameOfObject(), telo);
+        planeti.add(telo);
+
+        for (NebesnoeTelo planets : planeti) {
+            System.out.println(planets.getNameOfObject() + " : " + planets.getOrbitalnoeVremy());
+        }
+
+
 
 
     }
