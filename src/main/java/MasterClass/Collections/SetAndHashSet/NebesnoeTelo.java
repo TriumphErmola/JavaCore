@@ -31,6 +31,7 @@ public final class NebesnoeTelo {
         return this.sputniki.add(luna);
     }
 
+
     @Override
     public boolean equals(Object telo) {
         if (this == telo) {
@@ -43,5 +44,11 @@ public final class NebesnoeTelo {
         }
         String teloName = ((NebesnoeTelo) telo).getNameOfObject();
         return this.nameOfObject.equals(teloName);
+    }
+
+    @Override
+    public int hashCode() {
+        System.out.println("hashcode called");
+        return this.nameOfObject.hashCode() + 57;
     }
 }
