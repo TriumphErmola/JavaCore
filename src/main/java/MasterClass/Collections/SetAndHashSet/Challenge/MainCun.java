@@ -1,6 +1,6 @@
-package MasterClass.Collections.SetAndHashSet;
+package MasterClass.Collections.SetAndHashSet.Challenge;
 
-public class MainCun extends Cat{
+public class MainCun extends Cat {
 
     public MainCun(String name) {
         super(name);

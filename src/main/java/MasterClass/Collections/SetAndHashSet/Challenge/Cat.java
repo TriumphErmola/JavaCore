@@ -1,4 +1,4 @@
-package MasterClass.Collections.SetAndHashSet;
+package MasterClass.Collections.SetAndHashSet.Challenge;
 
 public class Cat {
 
