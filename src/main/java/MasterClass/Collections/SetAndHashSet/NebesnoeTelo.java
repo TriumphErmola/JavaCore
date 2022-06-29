@@ -3,7 +3,7 @@ package MasterClass.Collections.SetAndHashSet;
 import java.util.HashSet;
 import java.util.Set;
 
-public  class NebesnoeTelo {
+public abstract class NebesnoeTelo {
 
     private final String nameOfObject;
     private final double orbitalnoeVremyVrasheniya;

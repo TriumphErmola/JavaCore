@@ -74,11 +74,16 @@ public class Main {
         solarnayaSystema.put(telo.getNameOfObject(), telo);
         planeti.add(telo);
 
-        NebesnoeTelo pluton = new NebesnoeTelo("Pluton", 248,
-                NebesnoeTelo.TypeOfTel.KARLIKOVAYA_PLANETA);
+        NebesnoeTelo pluton = new KarlikovayaPlaneta("Pluton", 248);
+        planeti.add(pluton);
 
         for (NebesnoeTelo planets : planeti) {
             System.out.println(planets);
         }
+
+        NebesnoeTelo zemly1 = new Planeta("Earth",365);
+        NebesnoeTelo zemly2 = new Planeta("Earth",365);
+        System.out.println(zemly1.equals(zemly2));
+        System.out.println(zemly2.equals(zemly1));
     }
 }
