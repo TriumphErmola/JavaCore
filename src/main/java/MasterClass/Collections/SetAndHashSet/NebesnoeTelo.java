@@ -5,24 +5,24 @@ import java.util.Set;
 
 public abstract class NebesnoeTelo {
 
-    private final String nameOfObject;
+    private final NestedKey nestedKey;
     private final double orbitalnoeVremyVrasheniya;
     private final Set<NebesnoeTelo> sputniki;
-    private final TypeOfTel typeOfTel;
+
 
     public enum TypeOfTel {
         ZVEZDA, PLANETA, KARLIKOVAYA_PLANETA, LUNA, CUMETA, ASTEROID
     }
 
     public NebesnoeTelo(String nameOfObject, double orbitalnoeVremyVrasheniya, TypeOfTel typeOfTel) {
-        this.nameOfObject = nameOfObject;
+        this.nestedKey = new NestedKey(nameOfObject, typeOfTel);
         this.orbitalnoeVremyVrasheniya = orbitalnoeVremyVrasheniya;
         this.sputniki = new HashSet<>();
-        this.typeOfTel = typeOfTel;
+
     }
 
-    public String getNameOfObject() {
-        return nameOfObject;
+    public NestedKey getNestedKey() {
+        return nestedKey;
     }
 
     public double getOrbitalnoeVremyVrasheniya() {
@@ -31,10 +31,6 @@ public abstract class NebesnoeTelo {
 
     public Set<NebesnoeTelo> getSputniki() {
         return new HashSet<>(this.sputniki);
-    }
-
-    public TypeOfTel getTypeOfTel() {
-        return typeOfTel;
     }
 
     public boolean addSputnik(NebesnoeTelo luna) {
@@ -49,21 +45,61 @@ public abstract class NebesnoeTelo {
         }
         if (telo instanceof NebesnoeTelo) {
             NebesnoeTelo theTelo = (NebesnoeTelo) telo;
-            if (this.nameOfObject.equals(theTelo.getNameOfObject())) {
-                return this.typeOfTel == theTelo.getTypeOfTel();
-            }
+            return this.nestedKey.equals(theTelo.getNestedKey());
         }
         return false;
-
     }
+
 
     @Override
     public final int hashCode() {
-        return this.nameOfObject.hashCode() + 57 + this.typeOfTel.hashCode();
+        return this.nestedKey.hashCode();
     }
 
     @Override
     public String toString() {
-        return this.nameOfObject + " : " + this.typeOfTel + ", " + this.orbitalnoeVremyVrasheniya;
+        return this.nestedKey.getNameofKey() + ": " + this.nestedKey.getTypeOfTel() + "," + this.orbitalnoeVremyVrasheniya;
+    }
+
+    public static NestedKey makeKey(String name, TypeOfTel typeOfTel) {
+        return new NestedKey(name, typeOfTel);
+    }
+
+    public static final class NestedKey {
+        private String nameofKey;
+        private NebesnoeTelo.TypeOfTel typeOfTel;
+
+        private NestedKey(String nameofKey, NebesnoeTelo.TypeOfTel typeOfTel) {
+            this.nameofKey = nameofKey;
+            this.typeOfTel = typeOfTel;
+        }
+
+        public String getNameofKey() {
+            return nameofKey;
+        }
+
+        public NebesnoeTelo.TypeOfTel getTypeOfTel() {
+            return typeOfTel;
+        }
+
+        @Override
+        public boolean equals(Object object) {
+            NestedKey nestedKey = (NestedKey) object;
+            if (this.nameofKey.equals(nestedKey.getNameofKey())) {
+                return (this.typeOfTel == nestedKey.getTypeOfTel());
+            }
+            return false;
+        }
+
+        @Override
+        public int hashCode() {
+            return this.nameofKey.hashCode() + 57 + this.typeOfTel.hashCode();
+        }
+
+        @Override
+        public String toString() {
+            return this.nameofKey + " : " + this.typeOfTel;
+        }
     }
 }
+

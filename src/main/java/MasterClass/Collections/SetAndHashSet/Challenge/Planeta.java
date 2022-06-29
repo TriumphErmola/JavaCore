@@ -9,11 +9,10 @@ public class Planeta extends NebesnoeTelo {
 
     @Override
     public boolean addSputnik(NebesnoeTelo luna) {
-        if (luna.getTypeOfTel() == TypeOfTel.LUNA) {
+        if (luna.getNestedKey().getTypeOfTel() == TypeOfTel.LUNA) {
             return super.addSputnik(luna);
         } else {
             return false;
         }
     }
-
 }
