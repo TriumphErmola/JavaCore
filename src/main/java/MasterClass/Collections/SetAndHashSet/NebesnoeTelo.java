@@ -3,52 +3,67 @@ package MasterClass.Collections.SetAndHashSet;
 import java.util.HashSet;
 import java.util.Set;
 
-public final class NebesnoeTelo {
+public  class NebesnoeTelo {
 
     private final String nameOfObject;
-    private final double orbitalnoeVremy;
+    private final double orbitalnoeVremyVrasheniya;
     private final Set<NebesnoeTelo> sputniki;
+    private final TypeOfTel typeOfTel;
 
-    public NebesnoeTelo(String nameOfObject, double orbitalnoeVremy) {
+    public enum TypeOfTel {
+        ZVEZDA, PLANETA, KARLIKOVAYA_PLANETA, LUNA, CUMETA, ASTEROID
+    }
+
+    public NebesnoeTelo(String nameOfObject, double orbitalnoeVremyVrasheniya, TypeOfTel typeOfTel) {
         this.nameOfObject = nameOfObject;
-        this.orbitalnoeVremy = orbitalnoeVremy;
+        this.orbitalnoeVremyVrasheniya = orbitalnoeVremyVrasheniya;
         this.sputniki = new HashSet<>();
+        this.typeOfTel = typeOfTel;
     }
 
     public String getNameOfObject() {
         return nameOfObject;
     }
 
-    public double getOrbitalnoeVremy() {
-        return orbitalnoeVremy;
+    public double getOrbitalnoeVremyVrasheniya() {
+        return orbitalnoeVremyVrasheniya;
     }
 
     public Set<NebesnoeTelo> getSputniki() {
         return new HashSet<>(this.sputniki);
     }
 
-    public boolean addLuna(NebesnoeTelo luna) {
+    public TypeOfTel getTypeOfTel() {
+        return typeOfTel;
+    }
+
+    public boolean addSputnik(NebesnoeTelo luna) {
         return this.sputniki.add(luna);
     }
 
 
     @Override
-    public boolean equals(Object telo) {
+    public final boolean equals(Object telo) {
         if (this == telo) {
             return true;
         }
-        System.out.println("telo.getClass() is " + telo.getClass());
-        System.out.println("this.getClass() is " + this.getClass());
-        if ((telo == null) || (telo.getClass() != this.getClass())) {
-            return false;
+        if (telo instanceof NebesnoeTelo) {
+            NebesnoeTelo theTelo = (NebesnoeTelo) telo;
+            if (this.nameOfObject.equals(theTelo.getNameOfObject())) {
+                return this.typeOfTel == theTelo.getTypeOfTel();
+            }
         }
-        String teloName = ((NebesnoeTelo) telo).getNameOfObject();
-        return this.nameOfObject.equals(teloName);
+        return false;
+
     }
 
     @Override
-    public int hashCode() {
-        System.out.println("hashcode called");
-        return this.nameOfObject.hashCode() + 57;
+    public final int hashCode() {
+        return this.nameOfObject.hashCode() + 57 + this.typeOfTel.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return this.nameOfObject + " : " + this.typeOfTel + ", " + this.orbitalnoeVremyVrasheniya;
     }
 }

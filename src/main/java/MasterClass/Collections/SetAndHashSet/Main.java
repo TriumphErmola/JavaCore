@@ -1,5 +1,7 @@
 package MasterClass.Collections.SetAndHashSet;
 
+import MasterClass.Collections.SetAndHashSet.Challenge.Planeta;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -12,33 +14,49 @@ public class Main {
 
     public static void main(String[] args) {
 
-        NebesnoeTelo telo = new NebesnoeTelo("Merkuriy", 88);
+        NebesnoeTelo telo = new Planeta("Merkuriy", 88);
         solarnayaSystema.put(telo.getNameOfObject(), telo);
         planeti.add(telo);
 
-        telo = new NebesnoeTelo("Venera", 225);
+
+        telo = new Planeta("Venera", 225);
         solarnayaSystema.put(telo.getNameOfObject(), telo);
         planeti.add(telo);
 
-        telo = new NebesnoeTelo("Earth", 365);
+        telo = new Planeta("Earth", 365);
         solarnayaSystema.put(telo.getNameOfObject(), telo);
         planeti.add(telo);
 
-        NebesnoeTelo sputnik1 = new NebesnoeTelo("Luna", 27);
+
+        telo = new Planeta("Mars", 687);
+        solarnayaSystema.put(telo.getNameOfObject(), telo);
+        planeti.add(telo);
+
+        telo = new Planeta("Saturn", 10759);
+        solarnayaSystema.put(telo.getNameOfObject(), telo);
+        planeti.add(telo);
+
+        telo = new Planeta("Jupiter", 4332);
+        solarnayaSystema.put(telo.getNameOfObject(), telo);
+        planeti.add(telo);
+
+        telo = new Planeta("Uran", 30660);
+        solarnayaSystema.put(telo.getNameOfObject(), telo);
+        planeti.add(telo);
+
+        telo = new Planeta("Neptun", 165);
+        solarnayaSystema.put(telo.getNameOfObject(), telo);
+        planeti.add(telo);
+
+
+        NebesnoeTelo sputnik1 = new Sputnik("Deimos", 1.3);
         solarnayaSystema.put(sputnik1.getNameOfObject(), sputnik1);
-        telo.addLuna(sputnik1);
+        telo.addSputnik(sputnik1); // temp is still Mars
 
-        telo = new NebesnoeTelo("Mars", 687);
-        solarnayaSystema.put(telo.getNameOfObject(), telo);
-        planeti.add(telo);
-
-        sputnik1 = new NebesnoeTelo("Deimos", 1.3);
+        sputnik1 = new Sputnik("Phobos", 0.3);
         solarnayaSystema.put(sputnik1.getNameOfObject(), sputnik1);
-        telo.addLuna(sputnik1); // temp is still Mars
+        telo.addSputnik(sputnik1);
 
-        sputnik1 = new NebesnoeTelo("Phobos", 0.3);
-        solarnayaSystema.put(sputnik1.getNameOfObject(), sputnik1);
-        telo.addLuna(sputnik1);
 
         System.out.println("Planeti");
         for (NebesnoeTelo planeti : planeti) {
@@ -47,21 +65,20 @@ public class Main {
 
         NebesnoeTelo teloTest = solarnayaSystema.get("Mars");
         System.out.println("Luni of " + teloTest.getNameOfObject());
-        for (NebesnoeTelo sputnikiThisObject : teloTest.getSputniki()) {
+        for (NebesnoeTelo sputnikiThisObject : telo.getSputniki()) {
             System.out.println("\t" + sputnikiThisObject.getNameOfObject());
 
         }
 
-        telo = new NebesnoeTelo("Mars", 1234);
+        telo = new Planeta("Mars", 1234);
         solarnayaSystema.put(telo.getNameOfObject(), telo);
         planeti.add(telo);
 
+        NebesnoeTelo pluton = new NebesnoeTelo("Pluton", 248,
+                NebesnoeTelo.TypeOfTel.KARLIKOVAYA_PLANETA);
+
         for (NebesnoeTelo planets : planeti) {
-            System.out.println(planets.getNameOfObject() + " : " + planets.getOrbitalnoeVremy());
+            System.out.println(planets);
         }
-
-
-
-
     }
 }
