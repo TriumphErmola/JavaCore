@@ -1,8 +1,8 @@
 package MasterClass.Collections.SortedCollection;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Basket {
 
@@ -11,7 +11,7 @@ public class Basket {
 
     public Basket(String nameofBasket) {
         this.nameofBasket = nameofBasket;
-        this.listBasket = new HashMap<>();
+        this.listBasket = new TreeMap<>();
 
     }
 
@@ -30,7 +30,8 @@ public class Basket {
 
     @Override
     public String toString() {
-        String str = "\nShopping Basket " + nameofBasket + " contains " + listBasket.size() + "items\n";
+        String str = "\nShopping Basket " + nameofBasket + " contains " + listBasket.size()
+                + ((listBasket.size() == 1) ? " item " : " items ") + "\n";
         double totalPriceBasket = 0.0;
         for (Map.Entry<Stock, Integer> items : listBasket.entrySet()) {
             str = str + items.getKey() + ". " + items.getValue() + " purchased\n";
