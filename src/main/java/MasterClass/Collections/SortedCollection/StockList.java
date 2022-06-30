@@ -1,7 +1,7 @@
 package MasterClass.Collections.SortedCollection;
 
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class StockList {
@@ -9,7 +9,7 @@ public class StockList {
     private final Map<String, Stock> list;
 
     public StockList() {
-        this.list = new HashMap<>();
+        this.list = new LinkedHashMap<>();
     }
 
     public int addStock(Stock item) {
@@ -49,7 +49,7 @@ public class StockList {
             Stock stock = item.getValue();
             double itemPrice = stock.getValuePrice() * stock.getKolichestvo();
             str = str + stock + ".There are " + stock.getKolichestvo() + " in stock .Values of items: ";
-            str = str + itemPrice + "\n";
+            str = str + String.format("%.2f",itemPrice) + "\n";
             totalCost += itemPrice;
 
         }
