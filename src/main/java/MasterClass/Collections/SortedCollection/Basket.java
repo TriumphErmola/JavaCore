@@ -24,6 +24,25 @@ public class Basket {
         return 0;
     }
 
+    public int removeFromBasket(Stock item, int kolichestvo) {
+        if ((item != null) && (kolichestvo > 0)) {
+            int nalichieInBasket = listBasket.getOrDefault(item, 0);
+            int newKolichestvo = nalichieInBasket + kolichestvo;
+            if (newKolichestvo > 0) {
+                listBasket.put(item, newKolichestvo);
+                return kolichestvo;
+            } else if (newKolichestvo == 0) {
+                listBasket.remove(item);
+                return kolichestvo;
+            }
+        }
+        return 0;
+    }
+
+    public void clearBasket(){
+         this.listBasket.clear();
+    }
+
     public Map<Stock, Integer> Items() {
         return Collections.unmodifiableMap(listBasket);
     }

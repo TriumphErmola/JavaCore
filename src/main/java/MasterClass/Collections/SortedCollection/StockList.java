@@ -25,12 +25,17 @@ public class StockList {
     }
 
     public int selasStoke(String item, int kolichestvo) {
-        Stock inStock = list.getOrDefault(item, null);
-        if ((inStock != null) && (inStock.AvailableOstatok() >= kolichestvo) && (kolichestvo > 0)) {
-            inStock.regulirovkaZapasa(-kolichestvo);
-            return kolichestvo;
+        Stock stock = list.get(item);
+        if ((stock != null) && (kolichestvo > 0)) {
+            return stock.ItogPoOstatku(kolichestvo);
         }
         return 0;
+//        Stock inStock = list.getOrDefault(item, null);
+//        if ((inStock != null) && (inStock.AvailableOstatok() >= kolichestvo) && (kolichestvo > 0)) {
+//            inStock.regulirovkaZapasa(-kolichestvo);
+//            return kolichestvo;
+//        }
+//        return 0;
     }
 
     public int rezervStock(String name, int kolichestvo) {
@@ -41,6 +46,13 @@ public class StockList {
         return 0;
     }
 
+    public int unrezervStock(String name, int kolichestvo) {
+        Stock inStock = list.get(name);
+        if ((inStock != null) && (kolichestvo > 0)) {
+            return inStock.unRezervStock(kolichestvo);
+        }
+        return 0;
+    }
 
 
     public Stock get(String keyItem) {

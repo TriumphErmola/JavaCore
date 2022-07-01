@@ -93,7 +93,7 @@ public class Stock implements Comparable<Stock> {
 
     @Override
     public int compareTo(@NotNull Stock o) {
-        System.out.println("Entering Stock.compareTo");
+//        System.out.println("Entering Stock.compareTo");
         if (this == o) {
             return 0;
         }

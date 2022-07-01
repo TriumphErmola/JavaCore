@@ -1,5 +1,7 @@
 package MasterClass.Collections.SortedCollection;
 
+import java.util.Map;
+
 public class Main {
 
     private static StockList stockList = new StockList();
@@ -52,13 +54,29 @@ public class Main {
             System.out.println("We dont sell " + item);
             return 0;
         }
-        if (stockList.selasStoke(item, kolichestvo) != 0) {
-            basket.dobavitInBasket(stock, kolichestvo);
-            return kolichestvo;
+        if (stockList.rezervStock(item, kolichestvo) != 0) {
+            return basket.dobavitInBasket(stock, kolichestvo);
         }
         return 0;
+    }
 
+    public static int removeItem(Basket basket, String item, int kolichestvo) {
+        Stock stock = stockList.get(item);
+        if (stock == null) {
+            System.out.println("We dont sell " + item);
+            return 0;
+        }
+        if (basket.removeFromBasket(stock, kolichestvo) == kolichestvo) {
+            return stockList.unrezervStock(item, kolichestvo);
+        }
+        return 0;
+    }
 
+    public static void checkOut(Basket basket) {
+        for (Map.Entry<Stock, Integer> item : basket.Items().entrySet()) {
+            stockList.selasStoke(item.getKey().getTitle(), item.getValue());
+        }
+        basket.clearBasket();
     }
 }
 
