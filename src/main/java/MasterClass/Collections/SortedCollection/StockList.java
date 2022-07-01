@@ -16,22 +16,32 @@ public class StockList {
         if (item != null) {
             Stock inStock = list.getOrDefault(item.getTitle(), item);
             if (inStock != item) {
-                item.regulirovkaZapasa(inStock.getKolichestvo());
+                item.regulirovkaZapasa(inStock.AvailableOstatok());
             }
             list.put(item.getTitle(), item);
-            return item.getKolichestvo();
+            return item.AvailableOstatok();
         }
         return 0;
     }
 
     public int selasStoke(String item, int kolichestvo) {
         Stock inStock = list.getOrDefault(item, null);
-        if ((inStock != null) && (inStock.getKolichestvo() >= kolichestvo) && (kolichestvo > 0)) {
+        if ((inStock != null) && (inStock.AvailableOstatok() >= kolichestvo) && (kolichestvo > 0)) {
             inStock.regulirovkaZapasa(-kolichestvo);
             return kolichestvo;
         }
         return 0;
     }
+
+    public int rezervStock(String name, int kolichestvo) {
+        Stock inStock = list.get(name);
+        if ((inStock != null) && (kolichestvo > 0)) {
+            return inStock.rezervStock(kolichestvo);
+        }
+        return 0;
+    }
+
+
 
     public Stock get(String keyItem) {
         return list.get(keyItem);
@@ -47,9 +57,9 @@ public class StockList {
         double totalCost = 0.0;
         for (Map.Entry<String, Stock> item : list.entrySet()) {
             Stock stock = item.getValue();
-            double itemPrice = stock.getValuePrice() * stock.getKolichestvo();
-            str = str + stock + ".There are " + stock.getKolichestvo() + " in stock .Values of items: ";
-            str = str + String.format("%.2f",itemPrice) + "\n";
+            double itemPrice = stock.getValuePrice() * stock.AvailableOstatok();
+            str = str + stock + ".There are " + stock.AvailableOstatok() + " in stock .Values of items: ";
+            str = str + String.format("%.2f", itemPrice) + "\n";
             totalCost += itemPrice;
 
         }

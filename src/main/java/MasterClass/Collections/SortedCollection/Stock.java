@@ -6,18 +6,19 @@ public class Stock implements Comparable<Stock> {
 
     private final String title;
     private double valuePrice;
-    private int kolichestvo = 0;
+    private int summaNaOstatkah = 0;
+    private int rezerv = 0;
 
     public Stock(String title, double valuePrice) {
         this.title = title;
         this.valuePrice = valuePrice;
-        this.kolichestvo = 0;
+        this.summaNaOstatkah = 0;
     }
 
-    public Stock(String title, double valuePrice, int kolichestvo) {
+    public Stock(String title, double valuePrice, int summaNaOstatkah) {
         this.title = title;
         this.valuePrice = valuePrice;
-        this.kolichestvo = kolichestvo;
+        this.summaNaOstatkah = summaNaOstatkah;
     }
 
     public String getTitle() {
@@ -28,8 +29,8 @@ public class Stock implements Comparable<Stock> {
         return valuePrice;
     }
 
-    public int getKolichestvo() {
-        return kolichestvo;
+    public int AvailableOstatok() {
+        return summaNaOstatkah - rezerv;
     }
 
     public void setValuePrice(double valuePrice) {
@@ -40,11 +41,37 @@ public class Stock implements Comparable<Stock> {
     }
 
     public void regulirovkaZapasa(int kolichestvo) {
-        int newKolichestvo = this.kolichestvo + kolichestvo;
+        int newKolichestvo = this.summaNaOstatkah + kolichestvo;
         if (newKolichestvo >= 0) {
-            this.kolichestvo = newKolichestvo;
+            this.summaNaOstatkah = newKolichestvo;
         }
     }
+
+    public int rezervStock(int kolichestvo) {
+        if (kolichestvo <= AvailableOstatok()) {
+            rezerv += kolichestvo;
+            return kolichestvo;
+        }
+        return 0;
+    }
+
+    public int unRezervStock(int kolichestvo) {
+        if (kolichestvo <= rezerv) {
+            rezerv -= kolichestvo;
+            return kolichestvo;
+        }
+        return 0;
+    }
+
+    public int ItogPoOstatku(int kolichestvo) {
+        if (kolichestvo <= rezerv) {
+            summaNaOstatkah -= kolichestvo;
+            rezerv -= kolichestvo;
+            return kolichestvo;
+        }
+        return 0;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -79,6 +106,6 @@ public class Stock implements Comparable<Stock> {
 
     @Override
     public String toString() {
-        return this.title + " : price " + this.valuePrice;
+        return this.title + " : price " + this.valuePrice + ". Reserved: " + this.rezerv;
     }
 }
