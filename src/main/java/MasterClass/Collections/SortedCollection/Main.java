@@ -22,6 +22,13 @@ public class Main {
         stockList.addStock(stock);
         stock = new Stock("phone", 255.99, 50);
         stockList.addStock(stock);
+        stock = new Stock("car", 999.99, 10);
+        stockList.addStock(stock);
+        stock = new Stock("cup", 14.14, 10);
+        stockList.addStock(stock);
+        stock = new Stock("juice", 88.88, 80);
+        stockList.addStock(stock);
+
 
 
         for (String s : stockList.Item().keySet()) {
@@ -32,6 +39,9 @@ public class Main {
         sellItem(basket, "phone", 4);
         System.out.println(basket);
 
+        sellItem(basket, "car", 5);
+        System.out.println(basket);
+
         sellItem(basket, "shorts", 5);
         System.out.println(basket);
 
@@ -40,12 +50,19 @@ public class Main {
 
         sellItem(basket, "gantled", 7);
         System.out.println(basket);
-        System.out.println(stockList);
-
-        stock = new Stock("Gachi", 1.22);
 
         stockList.Item().get("shorts").regulirovkaZapasa(500);
-        System.out.println(stockList);
+
+        Basket basket1 = new Basket("customer");
+        sellItem(basket1,"cup",100);
+        sellItem(basket1,"juice",5);
+        removeItem(basket1,"cup",1);
+        System.out.println(basket1);
+
+        removeItem(basket,"breathe",3);
+        removeItem(basket,"gantled",4);
+        System.out.println("Car removed : "+ removeItem(basket,"car",1));
+
     }
 
     public static int sellItem(Basket basket, String item, int kolichestvo) {
