@@ -8,11 +8,12 @@ public class AnotherThreadClass extends Thread {
     public void run() {
         System.out.println(ANSI_BLUE + "Hello from : " + currentThread().getName());
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException exp) {
-            System.out.println(ANSI_BLUE + "Another thread woke me up");
+            System.out.println(ANSI_BLUE + "Another thread wake me up");
+            return;
         }
-        System.out.println(ANSI_BLUE + "Three seconds have passed and Im awake");
+        System.out.println(ANSI_BLUE + "Three seconds have passed and I'm awake");
     }
 
 }
