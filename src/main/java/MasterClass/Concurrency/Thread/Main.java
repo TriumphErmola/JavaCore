@@ -1,6 +1,6 @@
-package MasterClass.Concurrency;
+package MasterClass.Concurrency.Thread;
 
-import static MasterClass.Concurrency.ThreadColors.*;
+import static MasterClass.Concurrency.Thread.ThreadColors.*;
 
 public class Main {
     public static void main(String[] args) {

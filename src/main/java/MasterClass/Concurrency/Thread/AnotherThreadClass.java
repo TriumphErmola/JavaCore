@@ -1,6 +1,6 @@
-package MasterClass.Concurrency;
+package MasterClass.Concurrency.Thread;
 
-import static MasterClass.Concurrency.ThreadColors.ANSI_BLUE;
+import static MasterClass.Concurrency.Thread.ThreadColors.ANSI_BLUE;
 
 public class AnotherThreadClass extends Thread {
 

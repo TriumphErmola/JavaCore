@@ -1,4 +1,4 @@
-package MasterClass.Concurrency;
+package MasterClass.Concurrency.Thread;
 
 public class ThreadColors {
 
