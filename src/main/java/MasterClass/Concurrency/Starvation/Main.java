@@ -1,8 +1,11 @@
 package MasterClass.Concurrency.Starvation;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Main {
 
-    private static Object lock1 = new Object();
+//    private static Object lock1 = new Object();
+    private static ReentrantLock lock1 = new ReentrantLock();
 
     public static void main(String[] args) {
 
@@ -37,9 +40,12 @@ public class Main {
         @Override
         public void run() {
             for (int i = 0; i < 100; i++) {
-                synchronized (lock1) {
+                lock1.lock();
+                try{
                     System.out.format(colorThread + "%s: countWorker = %d\n",
                             Thread.currentThread().getName(), countWorker++);
+                }finally{
+                    lock1.unlock();
                 }
             }
         }
