@@ -8,7 +8,6 @@ public class Main {
     public static void main(String[] args) {
 
         new Thread(() -> {
-            System.out.println("Printing from the Runnable");
 
         }).start();
 
@@ -23,48 +22,32 @@ public class Main {
         comrades.add(tony);
         comrades.add(jim);
 
-        KakoytoClass kakoytoClass = new KakoytoClass();
-        String s = kakoytoClass.doSomething();
-        System.out.println(s);
+        comrades.forEach(comrade -> {
+            System.out.println(comrade.getNameOfComrade());
+            System.out.println(comrade.getAgeOfComrade());
+        });
 
-
-//        Collections.sort(comrades, new Comparator<Comrade>() {
-//            @Override
-//            public int compare(Comrade comrade1, Comrade comrade2) {
-//                return comrade1.getNameOfComrade().compareTo(comrade2.getNameOfComrade());
-//            }
-//        });
-//        Collections.sort(comrades, (comrade1, comrade2) ->
-//                comrade1.getNameOfComrade().compareTo(comrade2.getNameOfComrade()));
-//
-//
 //        for (Comrade comrade : comrades) {
 //            System.out.println(comrade.getNameOfComrade());
+//            System.out.println(comrade.getAgeOfComrade());
 //        }
-//
-//     1.  new Thread(new SimpleClass()).start();
-//
-//     2.   new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                System.out.println("Printing from the Runnable");
-//            }
-//        }).start();
 
-//        String stillString = stuffDoString(new ConcatAndUpper() {
-//                                               @Override
-//                                               public String concatAndUpper(String str1, String str2) {
-//                                                   return str1.toUpperCase() + str2.toUpperCase();
-//                                               }
-//                                           },
-//                comrades.get(0).getNameOfComrade(), comrades.get(1).getNameOfComrade());
-//        System.out.println(stillString);
+//        System.out.println("=====================");
+//
+//        for (int i = 0; i < comrades.size(); i++) {
+//            Comrade comrade = comrades.get(i);
+//            System.out.println(comrade.getAgeOfComrade());
+//            new Thread(() -> System.out.println(comrade.getAgeOfComrade())).start();
+//        }
+
         ConcatAndUpper cu = (str1, str2) -> {
             String result = str1.toUpperCase() + str2.toUpperCase();
             return result;
         };
-        String sillyString = stuffDoString(cu, comrades.get(0).getNameOfComrade(), comrades.get(1).getNameOfComrade());
-        System.out.println(sillyString);
+
+        String sillyString = stuffDoString(cu, comrades.get(0).getNameOfComrade(),
+                comrades.get(1).getNameOfComrade());
+
 
     }
 
@@ -113,9 +96,11 @@ interface ConcatAndUpper {
 
 class KakoytoClass {
     public String doSomething() {
+        int i = 0;
 
         ConcatAndUpper cau = (str1, str2) -> {
             System.out.println("The lambda expresssion class is " + getClass().getSimpleName());
+            System.out.println("int i in lambda expresssion" + i);
             String result = str1.toUpperCase() + str2.toUpperCase();
             return result;
         };
@@ -123,4 +108,19 @@ class KakoytoClass {
         System.out.println("Another class is name is " + getClass().getSimpleName());
         return Main.stuffDoString(cau, "String 1", "String2");
     }
+
+    public void valuePrint() {
+        int number = 25;
+
+        Runnable run = () -> {
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException exp) {
+                exp.printStackTrace();
+            }
+            System.out.println("The value is : " + number);
+        };
+        new Thread(run).start();
+    }
+
 }
