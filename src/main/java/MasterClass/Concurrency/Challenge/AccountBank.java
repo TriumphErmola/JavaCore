@@ -27,10 +27,14 @@ public class AccountBank {
 //    }
 
     public void deposit(double cash) {
+
+        boolean status = false;
+
         try {
             if (lock.tryLock(1000, TimeUnit.MILLISECONDS)) {
                 try {
                     accountBalance += cash;
+                    status = true;
                 } finally {
                     lock.unlock();
                 }
@@ -40,6 +44,7 @@ public class AccountBank {
         } catch (InterruptedException exp) {
         }
         System.out.println("Balance after added : " + this.accountBalance);
+        System.out.println("Transaction status = " + status);
     }
 
 //    public void deposit(double cash) {
@@ -53,10 +58,14 @@ public class AccountBank {
 //    }
 
     public void withdraw(double cash) {
+
+        boolean status = false;
+
         try {
             if (lock.tryLock(100, TimeUnit.MILLISECONDS)) {
                 try {
                     accountBalance -= cash;
+                    status = true;
                 } finally {
                     lock.unlock();
                 }
@@ -66,6 +75,7 @@ public class AccountBank {
         } catch (InterruptedException exp) {
         }
         System.out.println("Balance after cleen: " + this.accountBalance);
+        System.out.println("Transaction status = " + status);
     }
 //    public void withdraw(double cash) {
 //        lock.lock();
