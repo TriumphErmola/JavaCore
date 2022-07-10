@@ -4,7 +4,7 @@ import static MasterClass.Concurrency.Thread.ThreadColors.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(ANSI_PURPLE + "Hello from Main Thread");
+        System.out.println(ANSI_PURPLE + "Hello from Solution1 Thread");
 
         Thread thread1 = new AnotherThreadClass();
         thread1.setName("==Another Thread==");
@@ -30,7 +30,7 @@ public class Main {
         myRunnableThread.start();
         thread1.interrupt();
 
-        System.out.println(ANSI_PURPLE + "Hello again from Main Thread");
+        System.out.println(ANSI_PURPLE + "Hello again from Solution1 Thread");
 
 
     }
