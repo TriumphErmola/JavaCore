@@ -11,8 +11,7 @@ public class AccountBank {
     private int accountType;
 
 
-
-    public AccountBank(String firstName, String lastName, double balance,int accountType) {
+    public AccountBank(String firstName, String lastName, double balance, int accountType) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.balance = balance;
@@ -25,6 +24,9 @@ public class AccountBank {
     }
 
     public double withdrow(double amount, boolean branch) {
+        if ((amount > 500) && !branch) {
+            throw new IllegalArgumentException();
+        }
         balance -= amount;
         return balance;
     }
@@ -33,7 +35,7 @@ public class AccountBank {
         return balance;
     }
 
-    public boolean isCheking(){
+    public boolean isCheking() {
         return accountType == CHEKING;
     }
 
